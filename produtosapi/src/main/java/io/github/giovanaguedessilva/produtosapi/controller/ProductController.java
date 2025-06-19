@@ -4,7 +4,7 @@ import io.github.giovanaguedessilva.produtosapi.controller.Repository.ProductRep
 import io.github.giovanaguedessilva.produtosapi.model.Product;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -45,5 +45,10 @@ public class ProductController {
         product.setId(id);
         productRepository.save(product);
         return "Product with ID '"+id+"' successfully updated!";
+    }
+
+    @GetMapping
+    public List<Product> findAllProducts(@RequestParam("name") String name){
+        return productRepository.findByName(name);
     }
 }

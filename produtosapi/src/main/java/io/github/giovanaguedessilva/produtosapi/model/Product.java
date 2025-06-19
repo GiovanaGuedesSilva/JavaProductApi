@@ -1,19 +1,34 @@
 package io.github.giovanaguedessilva.produtosapi.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Column;
+
 //POJO -> Plain Old Java Object
+
+@Entity
+@Table(name = "tProduct")
 public class Product {
 
-    private String id;
+    @Id
+    @Column(name = "id")
+
+    private String cod;
+
     private String name;
+
     private String description;
+
+    @Column(name = "cost")
     private String price;
 
     public String getId() {
-        return id;
+        return cod;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setId(String cod) {
+        this.cod = cod;
     }
 
     public String getName() {
@@ -43,7 +58,7 @@ public class Product {
     @Override
     public String toString() {
         return "Product{" +
-                "id='" + id + '\'' +
+                "id='" + cod + '\'' +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", price='" + price + '\'' +
@@ -57,7 +72,7 @@ public class Product {
 //
 //@Data
 //public class Product {
-//    private String id;
+//    private String cod;
 //    private String name;
 //    private String description;
 //    private String price;

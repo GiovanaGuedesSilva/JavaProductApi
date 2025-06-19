@@ -2,11 +2,9 @@ package io.github.giovanaguedessilva.produtosapi.controller;
 
 import io.github.giovanaguedessilva.produtosapi.controller.Repository.ProductRepository;
 import io.github.giovanaguedessilva.produtosapi.model.Product;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
 import java.util.UUID;
 
 @RestController
@@ -27,5 +25,12 @@ public class ProductController {
         product.setId(id);
         productRepository.save(product);
         return product;
+    }
+
+    @GetMapping("/find/{id}")
+    public Product getProductById(@PathVariable("id") String id){
+//        Optional<Product> product = productRepository.findById(id);
+//        return product.isPresent() ? product.get() : null;
+        return productRepository.findById(id).orElse(null);
     }
 }

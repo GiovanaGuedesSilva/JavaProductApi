@@ -39,4 +39,11 @@ public class ProductController {
         productRepository.deleteById(id);
         return "Product with ID '"+id+"' successfully deleted!";
     }
+
+    @PutMapping("{id}")
+    public String update(@PathVariable("id") String id, @RequestBody Product product){
+        product.setId(id);
+        productRepository.save(product);
+        return "Product with ID '"+id+"' successfully updated!";
+    }
 }

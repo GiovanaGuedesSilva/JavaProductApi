@@ -27,10 +27,16 @@ public class ProductController {
         return product;
     }
 
-    @GetMapping("/find/{id}")
-    public Product getProductById(@PathVariable("id") String id){
+    @GetMapping("{id}")
+    public Product getById(@PathVariable("id") String id){
 //        Optional<Product> product = productRepository.findById(id);
 //        return product.isPresent() ? product.get() : null;
         return productRepository.findById(id).orElse(null);
+    }
+
+    @DeleteMapping("{id}")
+    public String delete(@PathVariable("id") String id){
+        productRepository.deleteById(id);
+        return "Product with ID '"+id+"' successfully deleted!";
     }
 }

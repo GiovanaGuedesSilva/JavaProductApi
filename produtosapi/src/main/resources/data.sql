@@ -1,4 +1,4 @@
-create table tProduct (
+create table Product (
     id varchar(255) not null primary key,
     name varchar(50) not null,
     description varchar(300),

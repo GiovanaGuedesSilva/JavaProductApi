@@ -8,7 +8,7 @@ import jakarta.persistence.Column;
 //POJO -> Plain Old Java Object
 
 @Entity
-@Table(name = "tProduct")
+@Table(name = "Product")
 public class Product {
 
     @Id
